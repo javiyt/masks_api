@@ -8,12 +8,12 @@ pull_request_rules:
       merge:
         method: merge
   - name: automatic merge for Dependabot pull requests
-      conditions:
-        - author~=^dependabot(|-preview)\[bot\]$
-        - status-success=Travis CI - Pull Request
-      actions:
-        merge:
-          method: merge
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - status-success=Travis CI - Pull Request
+    actions:
+      merge:
+        method: merge
   - name: delete head branch after merge
     conditions:
       - merged
