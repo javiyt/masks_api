@@ -1,8 +1,10 @@
 language: go
 go:
   - "1.15"
-script: go test ./... -coverprofile=coverage.txt -covermode=count
 before_install:
   - go get github.com/vektra/mockery/v2/.../@v2.2.1
+before_script:
+  - go generate ./...
+script: go test ./... -coverprofile=coverage.txt -covermode=count
 after_success:
   - bash <(curl -s https://codecov.io/bash)
